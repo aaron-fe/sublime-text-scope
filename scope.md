@@ -1,5 +1,36 @@
-ActionScript: source.actionscript.2
-AppleScript: source.applescript
-ASP: source.asp
-Batch File: source.dosbatch
-
+*	ASP: source.asp
+*	ActionScript: source.actionscript.2
+*	AppleScript: source.applescript
+*	Batch File: source.dosbatch
+*	C#: source.cs
+*	C++: source.c++
+*	CSS: source.css
+*	Clojure: source.clojure
+*	D: source.d
+*	Diff: source.diff
+*	Erlang: source.erlang
+*	Go: source.go
+*	Groovy: source.groovy
+*	HTML: text.html.basic
+*	Haskell: source.haskell
+*	Java: source.java
+*	JavaScript: source.js
+*	LESS: source.less
+*	LaTeX: text.tex.latex
+*	Lisp: source.lisp
+*	Lua: source.lua
+*	Makefile: source.makefile
+*	Markdown: text.html.markdown
+*	Matlab: source.matlab
+*	OCaml: source.ocaml
+*	Objective-C: source.objc
+*	PHP: source.php
+*	Perl: source.perl
+*	Python: source.python
+*	R: source.r
+*	Ruby: source.ruby
+*	SQL: source.sql
+*	Scala: source.scala
+*	TCL: source.tcl
+*	XML: text.xml
+*	YAML: source.yaml
