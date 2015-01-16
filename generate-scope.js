@@ -2,7 +2,7 @@ var fs = require('fs');
 var chalk = require('chalk');
 
 // You need to replace the 'packages_dir' with your own packages directory path
-var packages_dir = '/Users/lizhuhong/Library/Application Support/Sublime Text 2/Packages/';
+var packages_dir = '/Users/xxx/Library/Application Support/Sublime Text 2/Packages/';
 var languages = fs.readdirSync(packages_dir);
 // var languages = require('./languages');
 var ret = [];
