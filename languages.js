@@ -29,17 +29,12 @@ var languages = [
   'Perl',
   'Python',
   'R',
-  'Rails',
   'RestructuredText',
   'Ruby',
   'SQL',
   'Scala',
-  'ShellScript',
-  'Smarty',
   'TCL',
-  'Text',
   'Textile',
-  'Vintage',
   'XML',
   'YAML'
 ];

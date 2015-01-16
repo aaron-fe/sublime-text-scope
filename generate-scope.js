@@ -1,30 +1,40 @@
 var fs = require('fs');
-// var languages = require('./languages');
-// you need to replace the 'packages_dir' with your own packages directory path
-var packages_dir = '/Users/xxx/Library/Application Support/Sublime Text 2/Packages/';
+var chalk = require('chalk');
+
+// You need to replace the 'packages_dir' with your own packages directory path
+var packages_dir = '/Users/lizhuhong/Library/Application Support/Sublime Text 2/Packages/';
 var languages = fs.readdirSync(packages_dir);
-var lan_filter = /^(\.|0_package_control_loader|(All Autocomplete)|(Color Scheme)|(CSS3_Syntax)|Default|Emmet|Graphviz|Language - English)|(Package Control)|PyV8|Rails|(Regular Expressions)|ShellScript|Smarty|Text|(Theme - Default)|User|bz2|jQuery|Vintage/;
-
-languages = languages.filter(function (lan, index) {
-  return !lan_filter.test(lan);
-});
-
+// var languages = require('./languages');
 var ret = [];
-
 var rScope = /<key>scopeName<\/key>\n[\t\s]*<string>([^<]+)<\/string>/;
-// read files
+
 ret = languages.map(function (language, index) {
   var tmLanguage = packages_dir + language + '/' + language + '.tmLanguage';
-  var lan_content = fs.readFileSync(tmLanguage, {encoding: 'utf8'});
-  var scope = lan_content.match(rScope);
+  var lan_content = '';
+  var scope = '';
+  // read .tmLanguage files to get the scopeName
+  if (fs.existsSync(tmLanguage)) {
+    lan_content = fs.readFileSync(tmLanguage, {encoding: 'utf8'});
+  }
 
-  if (scope != null && typeof scope[1] !== 'undefined') {
-    scope = scope[1];
+  var scopeMatch = lan_content.match(rScope);
+
+  if (scopeMatch != null && typeof scopeMatch[1] !== 'undefined') {
+    scope = scopeMatch[1];
   } else {
     scope = '';
   }
 
+  if (scope == '') {
+    return '';
+  }
+  // add a '*\t' prefix, in order to follow the markdown list grammar
   return  '*\t' + language + ': ' + scope;
+});
+
+// escape the ones without a scopeName
+ret = ret.filter(function (scp) {
+  return scp !== '';
 });
 
 fs.writeFile('scope.md', ret.join('\n'), function (err) {
@@ -32,5 +42,5 @@ fs.writeFile('scope.md', ret.join('\n'), function (err) {
     throw err;
   }
 
-  console.log('language scope is generated successfully!');
+  console.log(chalk.green('language scope map is generated successfully!'));
 });

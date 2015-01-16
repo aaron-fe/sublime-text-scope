@@ -28,9 +28,11 @@
 *	Perl: source.perl
 *	Python: source.python
 *	R: source.r
+*	RestructuredText: text.restructuredtext
 *	Ruby: source.ruby
 *	SQL: source.sql
 *	Scala: source.scala
 *	TCL: source.tcl
+*	Textile: text.html.textile
 *	XML: text.xml
 *	YAML: source.yaml
